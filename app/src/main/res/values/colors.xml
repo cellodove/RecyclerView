@@ -5,6 +5,85 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="toolbar_background">#001D66</color>
+    <color name="signature_color">#02184E</color>
+
+    <color name="colorPrimary">#ff8200</color>
+    <color name="colorPrimaryDark">#02184E</color>
+    <color name="common_gray_bg">#F3F3F3</color>
+
+    <color name="common_blue">#1eb9ee</color>
+    <color name="common_blue_ripple">#3D1eb9ee</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="intro_bg">#F15B29</color>
+    <color name="divider_color">#d4d4d4</color>
+
+    <color name="gray_color">#555b6b</color>
+    <color name="light_gray_color">#f0f0f0</color>
+    <color name="little_light_gray_color">#ebebeb</color>
+    <color name="little_dark_gray_color">#c3c3c3</color>
+    <color name="black_color">#000000</color>
+    <color name="white_color">#ffffff</color>
+    <color name="blue_color">#56c4f6</color>
+    <color name="orange_color">#ff8200</color>
+    <color name="light_orange_color">#FFBA85</color>
+
+    <color name="tab_unselect_color">#555b6b</color>
+    <color name="tab_select_color">#ff5f40</color>
+
+    <color name="report_tab_select_color">#E75613</color>
+    <color name="report_tab_unselect_color">#3C4147</color>
+
+    <color name="light_gray">#D5D5D5</color>
+
+    <color name="logo_blue_color">#2EA7E0</color>
+    <color name="azure">#27b3e5</color>
+
+    <color name="logo_orange_color">#EA5514</color>
+
+    <color name="comment_color">#CD0C22</color>
+
+
+    <!--  design guide  -->
+
+    <color name="white">#ffffff</color>
+    <color name="white_10">#1Affffff</color>
+    <color name="white_20">#33ffffff</color>
+    <color name="white_30">#4Dffffff</color>
+    <color name="white_70">#B3ffffff</color>
+    <color name="white_50">#80ffffff</color>
+    <color name="pumpkin_orange">#ff8200</color>
+    <color name="pumpkin_orange_20">#33ff8200</color>
+    <color name="black">#000000</color>
+    <color name="black_5">#0D000000</color>
+    <color name="black_10">#1A000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_30">#4D000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="clear_blue">#1e96ff</color>
+    <color name="clear_blue_10">#1A1e96ff</color>
+    <color name="clear_blue_30">#4D1e96ff</color>
+    <color name="clear_blue_50">#801e96ff</color>
+    <color name="pale_sky_blue">#c3e1f0</color>
+    <color name="pale_sky_blue_10">#1Ac3e1f0</color>
+    <color name="pale_sky_blue_30">#4Dc3e1f0</color>
+    <color name="pale_sky_blue_50">#80c3e1f0</color>
+    <color name="pale_sky_blue_70">#B3c3e1f0</color>
+
+    <color name="ice_blue">#ebf5fa</color>
+    <color name="ice_blue_50">#80ebf5fa</color>
+    <color name="pale_grey">#f6f6f8</color>
+    <color name="orangey_red">#ff3b30</color>
+    <color name="orangey_red_15">#26ff3b30</color>
+    <color name="tangerine">#ff9600</color>
+    <color name="rosy_pink">#ff6487</color>
+    <color name="rosy_pink_20">#33ff6487</color>
+    <color name="cornflower">#6e6eff</color>
+    <color name="cornflower_10">#1A6e6eff</color>
+    <color name="turquoise_green">#00e178</color>
+    <color name="bg_top_white">#f6f6f8</color>
+    <color name="bg_bottom_blue">#c3e1f0</color>
 </resources>
