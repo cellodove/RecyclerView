@@ -1,6 +1,5 @@
 package com.cellodove.recyclerview.main
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,7 @@ import com.cellodove.recyclerview.databinding.RecyclerAdapterHeaderBinding
 import com.cellodove.recyclerview.databinding.RecyclerAdapterItemBinding
 import com.cellodove.recyclerview.repository.model.ProfileListInfo
 
-class RecyclerAdapter(var statusDataList : ArrayList<ProfileListInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerAdapter(private var profileListInfo : ArrayList<ProfileListInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
         private const val TYPE_HEADER = 0
         private const val TYPE_ITEM = 1
@@ -23,20 +22,16 @@ class RecyclerAdapter(var statusDataList : ArrayList<ProfileListInfo>) : Recycle
         this.onItemClickListener = listener
     }
 
-
-    class HeaderHolder(binding: RecyclerAdapterHeaderBinding) : RecyclerView.ViewHolder(binding.root)
-
-    inner class GatewayListViewHolder(private val binding: RecyclerAdapterItemBinding, context: Context) : RecyclerView.ViewHolder(binding.root), View.OnClickListener{
-        var context = context
+    inner class HeaderHolder(binding: RecyclerAdapterHeaderBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ProfileListViewHolder(private val binding: RecyclerAdapterItemBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener{
         var onBindPosition = 0
 
-        fun onBind(profileListInfo: ProfileListInfo, position1: Int){
-
+        fun onBind(profileListInfo: ProfileListInfo, position: Int){
             binding.userNumber.text = profileListInfo.userNumber
             binding.userDepartment.text = profileListInfo.userDepartment
             binding.userName.text = profileListInfo.userName
             binding.userClassNumber.text = profileListInfo.userClassNumber
-            onBindPosition = position1
+            onBindPosition = position
             binding.userName.setOnClickListener(this)
         }
 
@@ -51,17 +46,18 @@ class RecyclerAdapter(var statusDataList : ArrayList<ProfileListInfo>) : Recycle
         var holder: RecyclerView.ViewHolder = if (viewType == TYPE_HEADER){
             HeaderHolder(RecyclerAdapterHeaderBinding.inflate(LayoutInflater.from(parent.context),parent,false))
         }else{
-            GatewayListViewHolder(RecyclerAdapterItemBinding.inflate(LayoutInflater.from(parent.context),parent,false),parent.context)
+            ProfileListViewHolder(RecyclerAdapterItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
         }
         return holder
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is GatewayListViewHolder){
-            var gatewayListViewHolder = holder as GatewayListViewHolder
-            gatewayListViewHolder.onBind(statusDataList.get(position-1),position)
+        if (holder is ProfileListViewHolder){
+            var gatewayListViewHolder = holder
+            gatewayListViewHolder.onBind(profileListInfo[position-1],position)
         }
     }
+
     override fun getItemViewType(position: Int): Int {
         return if (position == 0){
             TYPE_HEADER
@@ -69,7 +65,8 @@ class RecyclerAdapter(var statusDataList : ArrayList<ProfileListInfo>) : Recycle
             TYPE_ITEM
         }
     }
+
     override fun getItemCount(): Int {
-        return statusDataList.size + 1
+        return profileListInfo.size + 1
     }
 }
