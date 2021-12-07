@@ -10,7 +10,6 @@ import com.cellodove.recyclerview.databinding.FragmentRecylerAdapterBinding
 import com.cellodove.recyclerview.repository.model.ProfileListInfo
 
 class RecyclerAdapterFragment : Fragment() {
-
     private lateinit var binding : FragmentRecylerAdapterBinding
     private val viewModel : MainViewModel by activityViewModels()
 
@@ -18,12 +17,13 @@ class RecyclerAdapterFragment : Fragment() {
         binding = FragmentRecylerAdapterBinding.inflate(inflater,container,false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.profileDetail.setOnClickListener {}
 
-        viewModel.gatewayData.observe(viewLifecycleOwner){
+        viewModel.profileDataInfo.observe(viewLifecycleOwner){
             var recyclerAdapter = RecyclerAdapter(it)
             binding.gatewayList.adapter = recyclerAdapter
             binding.profileDetail.setOnClickListener {
