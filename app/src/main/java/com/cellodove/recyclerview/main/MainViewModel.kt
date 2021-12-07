@@ -28,5 +28,6 @@ class MainViewModel : ViewModel() {
         profileData.add(ProfileListInfo("8","화학공학부","이세아","20217724"))
         profileData.add(ProfileListInfo("9","기계공학부","박진아","20217724"))
         profileDataInfo.value = profileData
+        
     }
 }
