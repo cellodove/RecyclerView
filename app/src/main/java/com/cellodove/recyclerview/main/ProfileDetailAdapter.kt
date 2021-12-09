@@ -8,11 +8,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cellodove.recyclerview.databinding.ListAdapterItemBinding
 import com.cellodove.recyclerview.repository.model.ProfileDetailInfo
 
-class ProfileDetailAdapter() : ListAdapter<ProfileDetailInfo, ProfileDetailAdapter.ProfileDataViewHolder>(diffUtil) {
+class ProfileDetailAdapter(private val itemClick : (ProfileDetailInfo) -> Unit) : ListAdapter<ProfileDetailInfo, ProfileDetailAdapter.ProfileDataViewHolder>(diffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileDataViewHolder {
         val binding = ListAdapterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProfileDataViewHolder(binding)
+        val profileDataViewHolder = ProfileDataViewHolder(binding)
+
+        binding.apply {
+            root.setOnClickListener {
+                itemClick(getItem(profileDataViewHolder.layoutPosition))
+            }
+        }
+        return profileDataViewHolder
     }
 
     override fun onBindViewHolder(holder: ProfileDataViewHolder, position: Int) {
@@ -23,6 +30,7 @@ class ProfileDetailAdapter() : ListAdapter<ProfileDetailInfo, ProfileDetailAdapt
         fun onBind(profileData: ProfileDetailInfo){
             binding.userName.text = profileData.userName
             binding.userAge.text = profileData.userAge
+            binding.profileImage.setImageResource(profileData.profileImage)
         }
 
     }

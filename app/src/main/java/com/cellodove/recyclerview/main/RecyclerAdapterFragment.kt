@@ -6,15 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.cellodove.recyclerview.databinding.FragmentRecylerAdapterBinding
-import com.cellodove.recyclerview.repository.model.ProfileListInfo
+import com.cellodove.recyclerview.databinding.FragmentRecyclerAdapterBinding
 
 class RecyclerAdapterFragment : Fragment() {
-    private lateinit var binding : FragmentRecylerAdapterBinding
+    private lateinit var binding : FragmentRecyclerAdapterBinding
     private val viewModel : MainViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentRecylerAdapterBinding.inflate(inflater,container,false)
+        binding = FragmentRecyclerAdapterBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -25,7 +24,7 @@ class RecyclerAdapterFragment : Fragment() {
 
         viewModel.profileDataInfo.observe(viewLifecycleOwner){
             var recyclerAdapter = RecyclerAdapter(it)
-            binding.gatewayList.adapter = recyclerAdapter
+            binding.recyclerList.adapter = recyclerAdapter
             binding.profileDetail.setOnClickListener {
                 viewModel.liveFragmentStep.value = MainViewModel.FragmentStep.PROFILE_DETAIL
             }
