@@ -2,16 +2,10 @@ package com.cellodove.recyclerview.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.cellodove.recyclerview.R
 import com.cellodove.recyclerview.repository.model.ProfileDetailInfo
 import com.cellodove.recyclerview.repository.model.ProfileListInfo
 import com.cellodove.recyclerview.util.SingleLiveEvent
-import com.cellodove.recyclerview.util.Timer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
     enum class FragmentStep { HOME, PROFILE_DETAIL }

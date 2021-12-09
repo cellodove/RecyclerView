@@ -1,15 +1,13 @@
 package com.cellodove.recyclerview.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.cellodove.recyclerview.R
 import com.cellodove.recyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val binding by lazy {
-        ActivityMainBinding.inflate(layoutInflater)
-    }
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     private val viewModel : MainViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,14 +30,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
     override fun onBackPressed() {
         val fm = supportFragmentManager
         if (fm.fragments[0] is RecyclerAdapterFragment) {
@@ -51,7 +41,6 @@ class MainActivity : AppCompatActivity() {
         }else{
             super.onBackPressed()
         }
-
     }
 
 }
