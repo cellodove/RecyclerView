@@ -36,13 +36,11 @@ class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.userName.text = profileListInfo.userName
             binding.userClassNumber.text = profileListInfo.userClassNumber
             onBindPosition = position
-            binding.userName.setOnClickListener(this)
+            binding.root.setOnClickListener(this)
         }
 
         override fun onClick(view: View?) {
-            if (view?.id == binding.userName.id){
-                onItemClickListener.onItemClick(onBindPosition-1)
-            }
+            onItemClickListener.onItemClick(onBindPosition-1)
         }
     }
 
