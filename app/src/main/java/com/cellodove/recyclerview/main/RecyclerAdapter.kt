@@ -8,11 +8,15 @@ import com.cellodove.recyclerview.databinding.RecyclerAdapterHeaderBinding
 import com.cellodove.recyclerview.databinding.RecyclerAdapterItemBinding
 import com.cellodove.recyclerview.repository.model.ProfileListInfo
 
-class RecyclerAdapter(private var profileListInfo : ArrayList<ProfileListInfo>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     companion object{
         private const val TYPE_HEADER = 0
         private const val TYPE_ITEM = 1
     }
+
+    private var data = arrayListOf<ProfileListInfo>()
+
+
     interface OnItemClickListener{
         fun onItemClick(position: Int)
     }
@@ -24,7 +28,7 @@ class RecyclerAdapter(private var profileListInfo : ArrayList<ProfileListInfo>) 
 
     inner class HeaderHolder(binding: RecyclerAdapterHeaderBinding) : RecyclerView.ViewHolder(binding.root)
     inner class ProfileListViewHolder(private val binding: RecyclerAdapterItemBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener{
-        var onBindPosition = 0
+        private var onBindPosition = 0
 
         fun onBind(profileListInfo: ProfileListInfo, position: Int){
             binding.userNumber.text = profileListInfo.userNumber
@@ -54,7 +58,7 @@ class RecyclerAdapter(private var profileListInfo : ArrayList<ProfileListInfo>) 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is ProfileListViewHolder){
             var gatewayListViewHolder = holder
-            gatewayListViewHolder.onBind(profileListInfo[position-1],position)
+            gatewayListViewHolder.onBind(data[position-1],position)
         }
     }
 
@@ -67,6 +71,12 @@ class RecyclerAdapter(private var profileListInfo : ArrayList<ProfileListInfo>) 
     }
 
     override fun getItemCount(): Int {
-        return profileListInfo.size + 1
+        return data.size + 1
     }
+
+    fun setData(data: List<ProfileListInfo>){
+        this.data = data as ArrayList<ProfileListInfo>
+        notifyDataSetChanged()
+    }
+
 }

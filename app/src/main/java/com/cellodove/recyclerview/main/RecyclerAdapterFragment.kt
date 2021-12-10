@@ -23,11 +23,14 @@ class RecyclerAdapterFragment : Fragment() {
         binding.profileDetail.setOnClickListener {}
 
         viewModel.profileDataInfo.observe(viewLifecycleOwner){
-            var recyclerAdapter = RecyclerAdapter(it)
+            var recyclerAdapter = RecyclerAdapter()
+            recyclerAdapter.setData(it)
+
             binding.recyclerList.adapter = recyclerAdapter
             binding.profileDetail.setOnClickListener {
                 viewModel.liveFragmentStep.value = MainViewModel.FragmentStep.PROFILE_DETAIL
             }
+
             recyclerAdapter.setOnItemClickListener(object : RecyclerAdapter.OnItemClickListener{
                 override fun onItemClick(position: Int) {
                 }
