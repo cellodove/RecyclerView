@@ -38,7 +38,7 @@ class ProfileDetailAdapter(private val itemClick : (ProfileDetailInfo) -> Unit) 
     companion object{
         val diffUtil = object : DiffUtil.ItemCallback<ProfileDetailInfo>(){
             override fun areItemsTheSame(oldItem: ProfileDetailInfo, newItem: ProfileDetailInfo) = oldItem == newItem
-            override fun areContentsTheSame(oldItem: ProfileDetailInfo, newItem: ProfileDetailInfo) = oldItem == newItem
+            override fun areContentsTheSame(oldItem: ProfileDetailInfo, newItem: ProfileDetailInfo) = oldItem.userAge == newItem.userAge
         }
     }
 
